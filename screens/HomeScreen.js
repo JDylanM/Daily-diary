@@ -5,7 +5,7 @@ import { Button, Icon } from 'react-native-elements';
 class HomeScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     headerLeft: (
-      <Text style={styles.headerStyle}> Today{"'"}s {'\n'} gratitudes </Text>
+      <Text style={styles.headerTextStyle}> Today{"'"}s {'\n'} gratitudes </Text>
     ),
     tabBarIcon: ({ tintColor }) => {
       return <Icon name="home" size={30} color={tintColor} />;
@@ -41,7 +41,7 @@ class HomeScreen extends Component {
 }
 
 const styles = {
-  headerStyle: {
+  headerTextStyle: {
     fontSize: 36
   },
   navigationBarStyle: {
