@@ -48,7 +48,7 @@ class AddGratitudeScreen extends Component {
     return (
       <View style={styles.containerStyle}>
         <Text style={styles.textTitleStyle}> Gratitude </Text>
-        <Text>Write down something you{"'"}re grateful for today!</Text>
+        <Text style={styles.textStyle}>Write down something you{"'"}re grateful for today!</Text>
       </View>
     );
   }
@@ -56,10 +56,14 @@ class AddGratitudeScreen extends Component {
 
 const styles = {
   containerStyle: {
-    padding: 15
+    padding: 0
   },
   textTitleStyle: {
     fontSize: 36
+  },
+  textStyle: {
+    marginLeft: 10,
+    marginRight: 10
   }
 }
 
