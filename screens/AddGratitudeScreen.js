@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Platform } from 'react-native';
-import { Button, Icon } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 
 class AddGratitudeScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -46,11 +46,20 @@ class AddGratitudeScreen extends Component {
 
   render() {
     return (
-      <View style={{ padding: 15 }}>
-        <Text style={{ fontSize: 36 }}> Gratitude </Text>
+      <View style={styles.containerStyle}>
+        <Text style={styles.textTitleStyle}> Gratitude </Text>
         <Text>Write down something you{"'"}re grateful for today!</Text>
       </View>
     );
+  }
+}
+
+const styles = {
+  containerStyle: {
+    padding: 15
+  },
+  textTitleStyle: {
+    fontSize: 36
   }
 }
 
