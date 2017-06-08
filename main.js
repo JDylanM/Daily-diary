@@ -11,25 +11,37 @@ import MemoriesScreen from './screens/MemoriesScreen';
 class App extends React.Component {
   render() {
     const MainNavigator = TabNavigator({
-      welcome: { screen: WelcomeScreen },
+      //welcome: { screen: WelcomeScreen },
       main: {
         screen: TabNavigator({
           home: {
             screen: StackNavigator({
-              review: { screen: HomeScreen },
-              settings: { screen: AddGratitudeScreen }
+              home: { screen: HomeScreen },
+              addGratitude: { screen: AddGratitudeScreen }
+            }, {
+              cardStyle: { backgroundColor:'white' },
+              mode: 'modal'
             })
           },
-          memories: { screen: MemoriesScreen }
+
+          memories: { screen: MemoriesScreen },
+
         }, {
           tabBarPosition: 'bottom',
           tabBarOptions: {
-            labelStyle: { fontSize: 12 }
+            activeTintColor: '#FF5722',
+            labelStyle: { fontSize: 12 },
+            style: {
+              backgroundColor: 'white',
+              borderTopColor: 'transparent'
+            }
           }
         })
-      }
+      },
+
     }, {
       navigationOptions: {
+        style: { backgroundColor: 'white' },
         tabBarVisible: false
       },
       lazy: true
