@@ -13,7 +13,7 @@ import MemoriesScreen from './screens/MemoriesScreen';
 class App extends React.Component {
   render() {
     const MainNavigator = TabNavigator({
-      //welcome: { screen: WelcomeScreen },
+      welcome: { screen: WelcomeScreen },
       main: {
         screen: TabNavigator({
           home: {
