@@ -45,6 +45,7 @@ class AddGratitudeScreen extends Component {
   }
 
   render() {
+    console.log(this.props.text);
     return (
       <View style={{ flex: 1 }}>
         <View>
@@ -92,6 +93,7 @@ const styles = {
 };
 
 const mapStateToProps = ({ text }) => {
+  //console.log(text);
   return { text };
 };
 
