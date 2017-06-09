@@ -44,7 +44,6 @@ class AddGratitudeScreen extends Component {
     this.props.saveGratitude(this.props.text);
     this.props.textUpdate('');
     this.props.navigation.navigate('home');
-  
   }
 
   render() {
