@@ -20,7 +20,7 @@ class HomeScreen extends Component {
     headerStyle: {
       //If the app is running on Android assign 24 to marginTop, if not, assign 0 to marginTop
       marginTop: Platform.OS === 'android' ? 24 : 0,
-      height: 140,
+      height: 120,
       shadowColor: 'transparent',
       backgroundColor: 'white'
     }
@@ -42,7 +42,8 @@ class HomeScreen extends Component {
 
 const styles = {
   headerTextStyle: {
-    fontSize: 36
+    fontSize: 28,
+    fontWeight: 'bold'
   },
   navigationBarStyle: {
     height: 100

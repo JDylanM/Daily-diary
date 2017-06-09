@@ -26,7 +26,8 @@ class MemoriesScreen extends Component {
 
 const styles = {
   textTitleStyle: {
-    fontSize: 36,
+    fontSize: 28,
+    fontWeight: 'bold',
     marginBottom: 15,
     marginTop: 40
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Platform } from 'react-native';
+import { View, Text, Platform, TextInput } from 'react-native';
 import { Button } from 'react-native-elements';
 
 class AddGratitudeScreen extends Component {
@@ -27,7 +27,6 @@ class AddGratitudeScreen extends Component {
 
         headerLeft:
           <Button
-
             backgroundColor='white'
             onPress={() => params.handleSave()}
             icon={{ name: 'clear', color: 'black', size: 40 }}
@@ -35,6 +34,7 @@ class AddGratitudeScreen extends Component {
     };
   };
 
+  state = { text: '' };
 
   componentDidMount() {
     this.props.navigation.setParams({ handleSave: this.saveGratitude });
@@ -46,9 +46,24 @@ class AddGratitudeScreen extends Component {
 
   render() {
     return (
-      <View style={styles.containerStyle}>
-        <Text style={styles.textTitleStyle}> Gratitude </Text>
-        <Text style={styles.textStyle}>Write down something you{"'"}re grateful for today!</Text>
+      <View style={{ flex: 1 }}>
+        <View>
+          <Text style={styles.textTitleStyle}>
+            Gratitude
+          </Text>
+          <Text style={styles.textStyle}>
+            Write down something you{"'"}re grateful for today!
+          </Text>
+        </View>
+        <View style={{ flex: 1 }}>
+          <TextInput
+            style={styles.textInputStyle}
+            multiline
+            autoFocus
+            onChangeText={(text) => this.setState({ text })}
+            value={this.state.text}
+          />
+        </View>
       </View>
     );
   }
@@ -56,15 +71,24 @@ class AddGratitudeScreen extends Component {
 
 const styles = {
   containerStyle: {
-    padding: 0
+    flex: 1
   },
   textTitleStyle: {
-    fontSize: 36
+    fontSize: 28,
+    marginLeft: 10,
+    fontWeight: 'bold'
   },
   textStyle: {
     marginLeft: 10,
     marginRight: 10
+  },
+  textInputStyle: {
+    flex: 1,
+    borderColor: 'gray',
+    marginTop: 20,
+    fontSize: 20,
+    padding: 5,
   }
-}
+};
 
 export default AddGratitudeScreen;
