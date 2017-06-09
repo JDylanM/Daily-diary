@@ -1,8 +1,10 @@
 import Expo from 'expo';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
 
+import store from './store/';
 import WelcomeScreen from './screens/WelcomeScreen';
 import HomeScreen from './screens/HomeScreen';
 import AddGratitudeScreen from './screens/AddGratitudeScreen';
@@ -48,9 +50,11 @@ class App extends React.Component {
     });
 
     return (
-      <View style={styles.container}>
-        <MainNavigator />
-      </View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <MainNavigator />
+        </View>
+      </Provider>
     );
   }
 }
