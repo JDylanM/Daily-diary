@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text, Platform, TextInput } from 'react-native';
 import { Button } from 'react-native-elements';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class AddGratitudeScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -34,8 +36,6 @@ class AddGratitudeScreen extends Component {
     };
   };
 
-  state = { text: '' };
-
   componentDidMount() {
     this.props.navigation.setParams({ handleSave: this.saveGratitude });
   }
@@ -60,8 +60,8 @@ class AddGratitudeScreen extends Component {
             style={styles.textInputStyle}
             multiline
             autoFocus
-            onChangeText={(text) => this.setState({ text })}
-            value={this.state.text}
+            onChangeText={(text) => this.props.textUpdate(text)}
+            value={this.props.text}
           />
         </View>
       </View>
@@ -91,4 +91,8 @@ const styles = {
   }
 };
 
-export default AddGratitudeScreen;
+const mapStateToProps = ({ text }) => {
+  return { text };
+};
+
+export default connect(mapStateToProps, actions)(AddGratitudeScreen);

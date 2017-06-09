@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import GratitudesReducer from './GratitudesReducer';
+import GratitudeInputReducer from './GratitudeInputReducer';
 
 export default combineReducers({
-  gratitudes: GratitudesReducer
+  text: GratitudeInputReducer
 });

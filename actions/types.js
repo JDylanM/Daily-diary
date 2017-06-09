@@ -1,1 +1,1 @@
-export const GRATITUDE_TEXT_UPDATE = 'gratitude_text_update';
+export const TEXT_UPDATE = 'text_update';
