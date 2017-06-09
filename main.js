@@ -31,7 +31,7 @@ class App extends React.Component {
         }, {
           tabBarPosition: 'bottom',
           tabBarOptions: {
-            activeTintColor: '#FF5722',
+            activeTintColor: '#FA7470',
             labelStyle: { fontSize: 12 },
             style: {
               backgroundColor: 'white',

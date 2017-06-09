@@ -73,9 +73,6 @@ class AddGratitudeScreen extends Component {
 }
 
 const styles = {
-  containerStyle: {
-    flex: 1
-  },
   textTitleStyle: {
     fontSize: 28,
     marginLeft: 10,
