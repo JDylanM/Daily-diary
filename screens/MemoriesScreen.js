@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Icon } from 'react-native-elements';
+import { connect } from 'react-redux';
 
 class MemoriesScreen extends Component {
   static navigationOptions = () => ({
@@ -33,4 +34,8 @@ const styles = {
   }
 };
 
-export default MemoriesScreen;
+const mapStateToProps = ({ gratitudes }) => {
+  return { gratitudes };
+};
+
+export default connect(mapStateToProps)(MemoriesScreen);
