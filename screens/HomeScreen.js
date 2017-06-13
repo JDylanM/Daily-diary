@@ -64,7 +64,7 @@ class HomeScreen extends Component {
             {text}
           </Text>
         </Card>
-      )
+      );
     });
   }
 
@@ -102,7 +102,7 @@ const styles = {
 };
 
 const mapStateToProps = ({ gratitudes }) => {
-  return { gratitudes }
+  return { gratitudes };
 };
 
 export default connect(mapStateToProps)(HomeScreen);

@@ -36,13 +36,15 @@ class AddGratitudeScreen extends Component {
     };
   };
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.navigation.setParams({ handleSave: this.handleSave });
   }
 
   handleSave = () => {
-    this.props.saveGratitude(this.props.text);
-    this.props.textUpdate('');
+    if (this.props.text) {
+      this.props.saveGratitude(this.props.text);
+      this.props.textUpdate('');
+    }
     this.props.navigation.navigate('home');
   }
 
