@@ -9,6 +9,7 @@ export const textUpdate = (text) => {
 };
 
 export const saveGratitude = (text) => {
-  const date = new Date();
+  let date = new Date();
+  date = date.toISOString().slice(0, 10);
   return { type: SAVE_GRATTITUDE, payload: { text, date } };
 };

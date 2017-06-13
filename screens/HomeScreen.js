@@ -50,15 +50,18 @@ class HomeScreen extends Component {
     console.log('HAHAHAWHEOPAWKEOPAKWOPEKAWOPEKWAOP');
     console.log(this.props.gratitudes);
     return this.props.gratitudes.map(gratitude => {
+      console.log(gratitude);
       const { text, date } = gratitude;
-      const today = `${date.getDate()} ${MONTHS[date.getMonth()]}, ${date.getFullYear()}`;
+      console.log(date);
+      //const today = `${date.getDate()} ${MONTHS[date.getMonth()]}, ${date.getFullYear()}`;
+      //{today}
 
       return (
         <Card
-          key={date.getTime()}
+          key={text}
         >
           <Text style={styles.dateTextStyle}>
-            {today}
+            {date}
           </Text>
           <Text style={styles.cardTextStyle}>
             {text}

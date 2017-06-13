@@ -1,11 +1,10 @@
-import {
-  SAVE_GRATTITUDE
-} from '../actions/types';
+import { REHYDRATE } from 'redux-persist/constants';
+import { SAVE_GRATTITUDE } from '../actions/types';
 
-const INITIAL_STATE = [];
-
-export default (state = INITIAL_STATE, action) => {
+export default (state = [], action) => {
   switch (action.type) {
+    case REHYDRATE:
+      return action.payload.gratitudes || [];
     case SAVE_GRATTITUDE:
       return [...state, { text: action.payload.text, date: action.payload.date }];
     default:
