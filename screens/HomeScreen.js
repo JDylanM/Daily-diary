@@ -4,21 +4,6 @@ import { Button, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import Card from '../components/Card';
 
-const MONTHS = [
-  'january',
-  'february',
-  'mars',
-  'april',
-  'may',
-  'june',
-  'july',
-  'august',
-  'september',
-  'october',
-  'november',
-  'december'
-];
-
 class HomeScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
     headerLeft: (
@@ -48,8 +33,8 @@ class HomeScreen extends Component {
 
   renderGratitudes = () => {
     console.log('HAHAHAWHEOPAWKEOPAKWOPEKAWOPEKWAOP');
-    console.log(this.props.gratitudes);
-    return this.props.gratitudes.map(gratitude => {
+    console.log(this.props.todayGratitudes);
+    return this.props.todayGratitudes.map(gratitude => {
       const { text, date } = gratitude;
 
       return (
@@ -99,8 +84,17 @@ const styles = {
   }
 };
 
+function getTodaysGratitudes(gratitudes) {
+  let todayDate = new Date();
+  todayDate = todayDate.toISOString().slice(0, 10);
+
+  return gratitudes.filter(gratitude => gratitude.date === todayDate);
+}
+
 const mapStateToProps = ({ gratitudes }) => {
-  return { gratitudes };
+  const todayGratitudes = getTodaysGratitudes(gratitudes);
+
+  return { todayGratitudes };
 };
 
 export default connect(mapStateToProps)(HomeScreen);
