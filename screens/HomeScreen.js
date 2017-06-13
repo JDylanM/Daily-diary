@@ -50,11 +50,7 @@ class HomeScreen extends Component {
     console.log('HAHAHAWHEOPAWKEOPAKWOPEKAWOPEKWAOP');
     console.log(this.props.gratitudes);
     return this.props.gratitudes.map(gratitude => {
-      console.log(gratitude);
       const { text, date } = gratitude;
-      console.log(date);
-      //const today = `${date.getDate()} ${MONTHS[date.getMonth()]}, ${date.getFullYear()}`;
-      //{today}
 
       return (
         <Card
@@ -82,7 +78,6 @@ class HomeScreen extends Component {
 
 const styles = {
   containerStyle: {
-    flex: 1,
     alignItems: 'center'
   },
   headerTextStyle: {
