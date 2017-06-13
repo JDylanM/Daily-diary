@@ -1,6 +1,7 @@
 import { REHYDRATE } from 'redux-persist/constants';
 import { SAVE_GRATTITUDE } from '../actions/types';
 
+//Test data here atm!
 const INITIAL_STATE = [{ text: 'TESTDATA', date: '2017-06-13' }];
 
 export default (state = INITIAL_STATE, action) => {
