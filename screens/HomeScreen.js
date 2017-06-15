@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ScrollView, Text, Platform } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
-import Card from '../components/Card';
+import GratitudeCard from '../components/GratitudeCard';
 
 class HomeScreen extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -35,19 +35,11 @@ class HomeScreen extends Component {
     console.log('HAHAHAWHEOPAWKEOPAKWOPEKAWOPEKWAOP');
     console.log(this.props.todayGratitudes);
     return this.props.todayGratitudes.map(gratitude => {
-      const { text, date } = gratitude;
-
       return (
-        <Card
-          key={text}
-        >
-          <Text style={styles.dateTextStyle}>
-            {date}
-          </Text>
-          <Text style={styles.cardTextStyle}>
-            {text}
-          </Text>
-        </Card>
+        <GratitudeCard
+          key={gratitude.text}
+          gratitude={gratitude}
+        />
       );
     });
   }
@@ -72,16 +64,6 @@ const styles = {
   navigationBarStyle: {
     height: 100
   },
-  dateTextStyle: {
-    fontSize: 16,
-    color: '#009688',
-    marginTop: 5,
-    marginBottom: 15
-  },
-  cardTextStyle: {
-    fontSize: 16,
-    marginBottom: 15
-  }
 };
 
 function getTodaysGratitudes(gratitudes) {
