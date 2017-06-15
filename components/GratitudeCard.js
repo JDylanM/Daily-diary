@@ -7,6 +7,8 @@ class GratitudeCard extends Component {
   // does not use destructuring here
     render() {
       const { date, text } = this.props.gratitude;
+      console.log('Detta kommer in i gratitudescard');
+      console.log(this.props.gratitude);
 
       return (
         <View style={styles.containerStyle}>

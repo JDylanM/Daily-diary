@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { ListView, View, Text, FlatList } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
+import GratitudeCard from '../components/GratitudeCard';
 
 class MemoriesScreen extends Component {
   static navigationOptions = () => ({
@@ -10,22 +11,45 @@ class MemoriesScreen extends Component {
     },
   });
 
-  render() {
+  _keyExtractor = (item) => `${item.text} + ${item.date}`;
+
+  _renderItem({ item }) {
+    return <GratitudeCard gratitude={item} />;
+  }
+
+  renderHeader() {
     return (
       <View>
-        <Text style={styles.textTitleStyle}> Memories</Text>
-        <Text> Memorie </Text>
-        <Text> MemoriesScreen </Text>
-        <Text> MemoriesScreen </Text>
-        <Text> MemoriesScreen </Text>
-        <Text> MemoriesScreen </Text>
-        <Text> MemoriesScreen </Text>
+        <Text style={styles.textTitleStyle}>
+          Memories
+        </Text>
+      </View>
+    );
+  }
+
+  render() {
+    return (
+      <View style={{ flex: 1 }}>
+        <Text style={styles.textTitleStyle} >
+          Memories
+        </Text>
+        <FlatList
+          contentContainerStyle={styles.containerStyle}
+          removeClippedSubViews={false}
+          data={this.props.gratitudes.reverse()}
+          keyExtractor={this._keyExtractor}
+          renderItem={this._renderItem}
+        />
       </View>
     );
   }
 }
 
 const styles = {
+  containerStyle: {
+    alignItems: 'center',
+    flex: 1
+  },
   textTitleStyle: {
     fontSize: 28,
     fontWeight: 'bold',

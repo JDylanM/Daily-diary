@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, Text, Platform } from 'react-native';
+import { FlatList, Text, Platform, View } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import GratitudeCard from '../components/GratitudeCard';
@@ -31,24 +31,24 @@ class HomeScreen extends Component {
     }
   })
 
-  renderGratitudes = () => {
-    console.log('HAHAHAWHEOPAWKEOPAKWOPEKAWOPEKWAOP');
-    console.log(this.props.todayGratitudes);
-    return this.props.todayGratitudes.map(gratitude => {
-      return (
-        <GratitudeCard
-          key={gratitude.text}
-          gratitude={gratitude}
-        />
-      );
-    });
+  _keyExtractor = (item) => `${item.text} + ${item.date}`;
+
+  _renderItem({ item }) {
+    return <GratitudeCard gratitude={item} />;
   }
+
 
   render() {
     return (
-      <ScrollView contentContainerStyle={styles.containerStyle}>
-        {this.renderGratitudes()}
-      </ScrollView>
+    <View style={{ flex: 1 }}>
+      <FlatList
+        contentContainerStyle={styles.containerStyle}
+        removeClippedSubViews={false}
+        data={this.props.todayGratitudes}
+        keyExtractor={this._keyExtractor}
+        renderItem={this._renderItem}
+      />
+    </View>
     );
   }
 }

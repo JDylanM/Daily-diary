@@ -11,7 +11,7 @@ const store = createStore(
   )
 );
 
-//persistStore(store, { storage: AsyncStorage, whitelist: ['gratitudes'] }).purge();
-persistStore(store, { storage: AsyncStorage, whitelist: ['gratitudes'] });
+persistStore(store, { storage: AsyncStorage, whitelist: ['gratitudes'] }).purge();
+//persistStore(store, { storage: AsyncStorage, whitelist: ['gratitudes'] });
 
 export default store;

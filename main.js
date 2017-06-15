@@ -29,6 +29,7 @@ class App extends React.Component {
           memories: { screen: MemoriesScreen },
 
         }, {
+          lazy: true,
           tabBarPosition: 'bottom',
           tabBarOptions: {
             activeTintColor: '#FA7470',
