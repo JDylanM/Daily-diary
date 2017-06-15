@@ -3,12 +3,10 @@ import { View, Dimensions, Text } from 'react-native';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
-class GratitudeCard extends Component {
+class GratitudeCard extends React.PureComponent {
   // does not use destructuring here
     render() {
       const { date, text } = this.props.gratitude;
-      console.log('Detta kommer in i gratitudescard');
-      console.log(this.props.gratitude);
 
       return (
         <View style={styles.containerStyle}>

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { FlatList, Text, Platform, View } from 'react-native';
+import { ScrollView, Text, Platform, View } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import GratitudeCard from '../components/GratitudeCard';
 
-class HomeScreen extends Component {
+class HomeScreen extends React.PureComponent {
   static navigationOptions = ({ navigation }) => ({
     headerLeft: (
       <Text style={styles.headerTextStyle}> Gratitude for {'\n'} today </Text>
@@ -31,24 +31,21 @@ class HomeScreen extends Component {
     }
   })
 
-  _keyExtractor = (item) => `${item.text} + ${item.date}`;
-
-  _renderItem({ item }) {
-    return <GratitudeCard gratitude={item} />;
-  }
-
-
+  renderGratitudes = () => {
+      return this.props.todayGratitudes.reverse().map(gratitude => {
+        return (
+          <GratitudeCard
+            gratitude={gratitude}
+            key={gratitude.key}
+          />
+        );
+      });
+    }
   render() {
     return (
-    <View style={{ flex: 1 }}>
-      <FlatList
-        contentContainerStyle={styles.containerStyle}
-        removeClippedSubViews={false}
-        data={this.props.todayGratitudes}
-        keyExtractor={this._keyExtractor}
-        renderItem={this._renderItem}
-      />
-    </View>
+      <ScrollView contentContainerStyle={styles.containerStyle}>
+        {this.renderGratitudes()}
+      </ScrollView>
     );
   }
 }

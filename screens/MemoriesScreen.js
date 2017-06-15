@@ -11,8 +11,6 @@ class MemoriesScreen extends Component {
     },
   });
 
-  _keyExtractor = (item) => `${item.text} + ${item.date}`;
-
   _renderItem({ item }) {
     return <GratitudeCard gratitude={item} />;
   }
@@ -35,9 +33,7 @@ class MemoriesScreen extends Component {
         </Text>
         <FlatList
           contentContainerStyle={styles.containerStyle}
-          removeClippedSubViews={false}
           data={this.props.gratitudes.reverse()}
-          keyExtractor={this._keyExtractor}
           renderItem={this._renderItem}
         />
       </View>
