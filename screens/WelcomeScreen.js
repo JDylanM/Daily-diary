@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, AsyncStorage } from 'react-native';
 import Slides from '../components/Slides';
 
 const SLIDE_DATA = [
@@ -9,7 +9,16 @@ const SLIDE_DATA = [
 
 
 class WelcomeScreen extends Component {
+  async componentWillMount() {
+    let shownWelcome = await AsyncStorage.getItem('shownWelcome');
+
+    if (shownWelcome) {
+      this.props.navigation.navigate('home');
+    }
+  }
+
   onSlidesComplete = () => {
+    AsyncStorage.setItem('shownWelcome', 'true');
     this.props.navigation.navigate('home');
   }
 
