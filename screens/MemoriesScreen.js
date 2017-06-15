@@ -11,7 +11,7 @@ class MemoriesScreen extends Component {
     },
   });
 
-  _renderItem({ item }) {
+  _renderItem = ({ item }) => {
     return <GratitudeCard gratitude={item} />;
   }
 
@@ -24,6 +24,7 @@ class MemoriesScreen extends Component {
       </View>
     );
   }
+
 
   render() {
     return (
@@ -50,7 +51,8 @@ const styles = {
     fontSize: 28,
     fontWeight: 'bold',
     marginBottom: 15,
-    marginTop: 40
+    marginTop: 40,
+    marginLeft: 10
   }
 };
 

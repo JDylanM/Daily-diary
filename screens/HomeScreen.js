@@ -31,16 +31,24 @@ class HomeScreen extends React.PureComponent {
     }
   })
 
+  onRowPress = (gratitude) => {
+    this.props.navigation.setParams({ gratitude });
+    this.props.navigation.navigate('addGratitude');
+  }
+
   renderGratitudes = () => {
       return this.props.todayGratitudes.reverse().map(gratitude => {
         return (
           <GratitudeCard
             gratitude={gratitude}
+            onRowPress={this.onRowPress}
             key={gratitude.key}
           />
         );
       });
     }
+
+
   render() {
     return (
       <ScrollView contentContainerStyle={styles.containerStyle}>

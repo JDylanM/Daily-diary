@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
-import { View, Dimensions, Text } from 'react-native';
+import { View, Dimensions, Text, TouchableWithoutFeedback } from 'react-native';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 class GratitudeCard extends React.PureComponent {
-  // does not use destructuring here
-    render() {
-      const { date, text } = this.props.gratitude;
+  static defaultProps = {
+    onRowPress: () => {}
+  }
 
-      return (
+  render() {
+    const { date, text } = this.props.gratitude;
+
+    return (
+      <TouchableWithoutFeedback onPress={() => this.props.onRowPress(this.props.gratitude)}>
         <View style={styles.containerStyle}>
-          <Text style={styles.dateTextStyle}>
-            {date}
-          </Text>
-          <Text style={styles.cardTextStyle}>
-            {text}
-          </Text>
-        </View>
-      );
-    }
-
+            <Text style={styles.dateTextStyle}>
+              {date}
+            </Text>
+            <Text style={styles.cardTextStyle}>
+              {text}
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+    );
+  }
 }
 
 const styles = {
