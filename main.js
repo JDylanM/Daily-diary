@@ -9,6 +9,7 @@ import WelcomeScreen from './screens/WelcomeScreen';
 import HomeScreen from './screens/HomeScreen';
 import AddGratitudeScreen from './screens/AddGratitudeScreen';
 import MemoriesScreen from './screens/MemoriesScreen';
+import EditGratitudeScreen from './screens/EditGratitudeScreen';
 
 class App extends React.Component {
   render() {
@@ -19,7 +20,8 @@ class App extends React.Component {
           home: {
             screen: StackNavigator({
               home: { screen: HomeScreen },
-              addGratitude: { screen: AddGratitudeScreen }
+              addGratitude: { screen: AddGratitudeScreen },
+              editGratitude: { screen: EditGratitudeScreen }
             }, {
               cardStyle: { backgroundColor: 'white' },
               mode: 'modal'
@@ -53,7 +55,7 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <View style={styles.container}>
-          <MainNavigator />
+          <MainNavigator onNavigationStateChange={null} />
         </View>
       </Provider>
     );

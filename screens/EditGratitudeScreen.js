@@ -4,7 +4,7 @@ import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
-class AddGratitudeScreen extends Component {
+class EditGratitudeScreen extends Component {
   static navigationOptions = ({ navigation }) => {
     const { params = {} } = navigation.state;
     return {
@@ -37,15 +37,16 @@ class AddGratitudeScreen extends Component {
   };
 
   componentWillMount() {
-    this.props.textUpdate('');
     this.props.navigation.setParams({ handleSave: this.handleSave });
+    console.log('HALOOOOOOOOOOO');
+    console.log(this.props.navigation.state);
+    const { text } = this.props.navigation.state.params.gratitude;
+    this.props.textUpdate(text);
   }
 
   handleSave = () => {
-    if (this.props.text) {
-      this.props.saveGratitude(this.props.text);
-      this.props.textUpdate('');
-    }
+    const { key } = this.props.navigation.state.params.gratitude;
+    this.props.updateGratitude(this.props.text, key);
     this.props.navigation.navigate('home');
   }
 
@@ -98,4 +99,4 @@ const mapStateToProps = ({ text }) => {
   return { text };
 };
 
-export default connect(mapStateToProps, actions)(AddGratitudeScreen);
+export default connect(mapStateToProps, actions)(EditGratitudeScreen);

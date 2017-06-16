@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { ScrollView, Text, Platform, View } from 'react-native';
+import React from 'react';
+import { ScrollView, Text, Platform } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import GratitudeCard from '../components/GratitudeCard';
@@ -32,8 +32,7 @@ class HomeScreen extends React.PureComponent {
   })
 
   onRowPress = (gratitude) => {
-    this.props.navigation.setParams({ gratitude });
-    this.props.navigation.navigate('addGratitude');
+    this.props.navigation.navigate('editGratitude', { gratitude });
   }
 
   renderGratitudes = () => {

@@ -12,7 +12,9 @@ class GratitudeCard extends React.PureComponent {
     const { date, text } = this.props.gratitude;
 
     return (
-      <TouchableWithoutFeedback onPress={() => this.props.onRowPress(this.props.gratitude)}>
+      <TouchableWithoutFeedback
+        onPress={() => this.props.onRowPress(this.props.gratitude)}
+      >
         <View style={styles.containerStyle}>
             <Text style={styles.dateTextStyle}>
               {date}
