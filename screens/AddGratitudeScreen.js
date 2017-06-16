@@ -94,7 +94,6 @@ const styles = {
 };
 
 const mapStateToProps = ({ text }) => {
-  //console.log(text);
   return { text };
 };
 

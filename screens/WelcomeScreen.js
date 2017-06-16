@@ -10,7 +10,6 @@ const SLIDE_DATA = [
 
 class WelcomeScreen extends Component {
   async componentWillMount() {
-    //AsyncStorage.removeItem('shownWelcome');
     let shownWelcome = await AsyncStorage.getItem('shownWelcome');
 
     if (shownWelcome) {

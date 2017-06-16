@@ -15,11 +15,8 @@ export default (state = INITIAL_STATE, action) => {
     case SAVE_GRATTITUDE:
       return [...state, { text: action.payload.text, date: action.payload.date, key }];
     case UPDATE_GRATITUDE: {
-      console.log(state);
       return state.map(item => {
-        console.log(`item id ${item.key} vs ${action.payload.key}`);
         if (item.key !== action.payload.key) {
-          console.log('trutru')
           // This isn't the item we care about - keep it as-is
           return item;
         }

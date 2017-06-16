@@ -38,8 +38,6 @@ class EditGratitudeScreen extends Component {
 
   componentWillMount() {
     this.props.navigation.setParams({ handleSave: this.handleSave });
-    console.log('HALOOOOOOOOOOO');
-    console.log(this.props.navigation.state);
     const { text } = this.props.navigation.state.params.gratitude;
     this.props.textUpdate(text);
   }
@@ -95,7 +93,6 @@ const styles = {
 };
 
 const mapStateToProps = ({ text }) => {
-  //console.log(text);
   return { text };
 };
 
