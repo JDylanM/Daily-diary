@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-
+import { projectFont } from '../projectFont/';
 
 class MyAppText extends Component {
   render() {
@@ -14,7 +14,7 @@ class MyAppText extends Component {
 
 const styles = {
   textStyle: {
-    fontFamily: 'AmericanTypewriter-Bold'
+    fontFamily: projectFont
   }
 };
 

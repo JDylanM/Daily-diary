@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, ScrollView, Dimensions } from 'react-native';
 import { Button } from 'react-native-elements';
 import MyAppText from '../components/MyAppText';
+import { projectFont } from '../projectFont/';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -12,6 +13,7 @@ class Slides extends Component {
         <Button
           title="I'm ready!"
           raised
+          fontFamily={projectFont}
           buttonStyle={styles.buttonStyle}
           onPress={this.props.onComplete}
         />
@@ -58,7 +60,7 @@ const styles = {
     marginBottom: 15
   },
   buttonStyle: {
-    backgroundColor: '#009688'
+    backgroundColor: '#009688',
   }
 };
 

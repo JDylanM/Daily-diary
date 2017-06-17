@@ -4,6 +4,7 @@ import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import MyAppText from '../components/MyAppText';
+import { projectFont } from '../projectFont/';
 
 class AddGratitudeScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -22,7 +23,7 @@ class AddGratitudeScreen extends Component {
 
       headerRight:
         <Button
-          textStyle={{ color: 'black', fontSize: 17 }}
+          textStyle={{ color: 'black', fontSize: 17, fontFamily: projectFont }}
           backgroundColor='white'
           title="Save"
           onPress={() => params.handleSave()}

@@ -4,6 +4,7 @@ import { Button, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import GratitudeCard from '../components/GratitudeCard';
 import MyAppText from '../components/MyAppText';
+import { projectFont } from '../projectFont/';
 
 class HomeScreen extends React.PureComponent {
   static navigationOptions = ({ navigation }) => ({
@@ -28,7 +29,7 @@ class HomeScreen extends React.PureComponent {
       marginTop: Platform.OS === 'android' ? 24 : 0,
       height: 120,
       shadowColor: 'transparent',
-      backgroundColor: 'white'
+      backgroundColor: 'white',
     }
   })
 

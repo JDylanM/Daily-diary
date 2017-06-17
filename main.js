@@ -11,6 +11,8 @@ import AddGratitudeScreen from './screens/AddGratitudeScreen';
 import MemoriesScreen from './screens/MemoriesScreen';
 import EditGratitudeScreen from './screens/EditGratitudeScreen';
 
+import { projectFont } from './projectFont/';
+
 class App extends React.Component {
   render() {
     const MainNavigator = TabNavigator({
@@ -35,7 +37,7 @@ class App extends React.Component {
           tabBarPosition: 'bottom',
           tabBarOptions: {
             activeTintColor: '#FA7470',
-            labelStyle: { fontSize: 12 },
+            labelStyle: { fontSize: 12, fontFamily: projectFont },
             style: {
               backgroundColor: 'white',
               borderTopColor: 'transparent'
@@ -68,6 +70,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
   },
+  tabBarLabelStyle: {
+
+  }
 });
 
 Expo.registerRootComponent(App);
