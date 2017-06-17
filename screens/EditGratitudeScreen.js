@@ -8,6 +8,9 @@ class EditGratitudeScreen extends Component {
   static navigationOptions = ({ navigation }) => {
     const { params = {} } = navigation.state;
     return {
+      headerTintColor: 'black',
+      tabBarVisible: false,
+
       headerStyle: {
         //If the app is running on Android assign 24 to marginTop, if not, assign 0 to marginTop
         marginTop: Platform.OS === 'android' ? 24 : 0,
@@ -16,30 +19,43 @@ class EditGratitudeScreen extends Component {
         backgroundColor: 'white'
       },
 
-      headerTintColor: 'black',
-      tabBarVisible: false,
-
-      headerRight:
+      header:
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 24 }} >
         <Button
+          backgroundColor='white'
+          onPress={() => navigation.navigate('home')}
+          icon={{ name: 'chevron-left', color: 'black', size: 40 }}
+        />
+        <Button
+          textStyle={{ color: 'black', fontSize: 17 }}
+          backgroundColor='white'
+          icon={{ name: 'delete-forever', color: 'black', size: 40 }}
+          onPress={() => params.handleDelete()}
+        />
+        <Button
+          style={{ marginTop: 10 }}
           textStyle={{ color: 'black', fontSize: 17 }}
           backgroundColor='white'
           title="Save"
           onPress={() => params.handleSave()}
-        />,
-
-        headerLeft:
-          <Button
-            backgroundColor='white'
-            onPress={() => navigation.navigate('home')}
-            icon={{ name: 'clear', color: 'black', size: 40 }}
-          />
+        />
+      </View>
     };
   };
 
   componentWillMount() {
-    this.props.navigation.setParams({ handleSave: this.handleSave });
+    this.props.navigation.setParams({
+      handleSave: this.handleSave,
+      handleDelete: this.handleDelete,
+    });
     const { text } = this.props.navigation.state.params.gratitude;
     this.props.textUpdate(text);
+  }
+
+  handleDelete = () => {
+    const { key } = this.props.navigation.state.params.gratitude;
+    this.props.deleteGratitude(key);
+    this.props.navigation.navigate('home');
   }
 
   handleSave = () => {

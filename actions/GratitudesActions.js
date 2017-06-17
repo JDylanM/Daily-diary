@@ -1,7 +1,8 @@
 import {
   TEXT_UPDATE,
   SAVE_GRATTITUDE,
-  UPDATE_GRATITUDE
+  UPDATE_GRATITUDE,
+  DELETE_GRATITUDE
 } from './types';
 
 
@@ -16,6 +17,9 @@ export const saveGratitude = (text) => {
 };
 
 export const updateGratitude = (text, key) => {
-  console.log('HIT DÅ?');
   return { type: UPDATE_GRATITUDE, payload: { text, key } };
+};
+
+export const deleteGratitude = (key) => {
+  return { type: DELETE_GRATITUDE, payload: key };
 };
