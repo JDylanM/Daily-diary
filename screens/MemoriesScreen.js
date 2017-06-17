@@ -3,6 +3,7 @@ import { ListView, View, Text, FlatList } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import GratitudeCard from '../components/GratitudeCard';
+import MyAppText from '../components/MyAppText';
 
 class MemoriesScreen extends Component {
   static navigationOptions = () => ({
@@ -18,9 +19,9 @@ class MemoriesScreen extends Component {
   renderHeader() {
     return (
       <View>
-        <Text style={styles.textTitleStyle}>
+        <MyAppText style={styles.textTitleStyle}>
           Memories
-        </Text>
+        </MyAppText>
       </View>
     );
   }
@@ -29,9 +30,9 @@ class MemoriesScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <Text style={styles.textTitleStyle} >
+        <MyAppText style={styles.textTitleStyle} >
           Memories
-        </Text>
+        </MyAppText>
         <FlatList
           contentContainerStyle={styles.containerStyle}
           data={this.props.gratitudes.reverse()}

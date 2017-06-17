@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Dimensions, Text, TouchableWithoutFeedback } from 'react-native';
+import MyAppText from '../components/MyAppText';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -16,12 +17,12 @@ class GratitudeCard extends React.PureComponent {
         onPress={() => this.props.onRowPress(this.props.gratitude)}
       >
         <View style={styles.containerStyle}>
-            <Text style={styles.dateTextStyle}>
+            <MyAppText style={styles.dateTextStyle}>
               {date}
-            </Text>
-            <Text style={styles.cardTextStyle}>
+            </MyAppText>
+            <MyAppText style={styles.cardTextStyle}>
               {text}
-            </Text>
+            </MyAppText>
           </View>
         </TouchableWithoutFeedback>
     );

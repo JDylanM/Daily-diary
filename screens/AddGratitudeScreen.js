@@ -3,6 +3,7 @@ import { View, Text, Platform, TextInput } from 'react-native';
 import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import MyAppText from '../components/MyAppText';
 
 class AddGratitudeScreen extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -53,12 +54,12 @@ class AddGratitudeScreen extends Component {
     return (
       <View style={{ flex: 1 }}>
         <View>
-          <Text style={styles.textTitleStyle}>
+          <MyAppText style={styles.textTitleStyle}>
             Gratitude
-          </Text>
-          <Text style={styles.textStyle}>
+          </MyAppText>
+          <MyAppText style={styles.textStyle}>
             Write down something you{"'"}re grateful for today!
-          </Text>
+          </MyAppText>
         </View>
         <View style={{ flex: 1 }}>
           <TextInput

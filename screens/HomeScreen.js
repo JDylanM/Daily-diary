@@ -3,11 +3,12 @@ import { ScrollView, Text, Platform } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import GratitudeCard from '../components/GratitudeCard';
+import MyAppText from '../components/MyAppText';
 
 class HomeScreen extends React.PureComponent {
   static navigationOptions = ({ navigation }) => ({
     headerLeft: (
-      <Text style={styles.headerTextStyle}> Gratitude for {'\n'} today </Text>
+      <MyAppText style={styles.headerTextStyle}> Gratitude for {'\n'} today </MyAppText>
     ),
 
     tabBarIcon: ({ tintColor }) => {
@@ -63,7 +64,7 @@ const styles = {
   },
   headerTextStyle: {
     fontSize: 28,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   navigationBarStyle: {
     height: 100
