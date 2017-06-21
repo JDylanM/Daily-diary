@@ -1,4 +1,4 @@
 # I-am-grateful
 
-![Text text](./welcome1.png)
+![Text text](./images/welcome1.png)
 
