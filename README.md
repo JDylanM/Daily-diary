@@ -1,4 +1,6 @@
 # I-am-grateful
 
-![Text text](./images/welcome1.png)
+A small summer project in order to learn React Native! Write down what you're thankful of everyday to emphasize great things in life!
+
+(./images/welcome1.png)
 
